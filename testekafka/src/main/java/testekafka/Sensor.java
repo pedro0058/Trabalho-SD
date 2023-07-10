@@ -35,6 +35,7 @@ public class Sensor {
 	@Override
 	public String toString() {
 		return "Sensor [id=" + id + ", nome=" + nome + ", valor=" + valor + ", maxValor=" + maxValor + ", minValor=" + minValor + "]";
+		//return "Sensor [id=" + id + ", nome=" + nome + ", valor=" + valor + "]";
 	}
 
 	public Double getValor() {
@@ -50,15 +51,20 @@ public class Sensor {
 	}
 	
 	//método usado para modificar o valor do sensor e pegar o menor e meior vaalor já registrado
-	public void setValor(double valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
+//		maxValor = Math.max(maxValor, valor);
+//		minValor = Math.min(minValor, valor);
+	}
+	
+	public void setMaxValor(Double valor) {
+		this.maxValor = valor;
 		
-		if(valor > this.maxValor) {
-			this.maxValor = valor;
-		}
-		if(valor < minValor) {
-			this.minValor = valor;
-		}
+	}
+	
+	public void setMinValor(Double valor) {
+		this.minValor = valor;
+		
 	}
 		
 
