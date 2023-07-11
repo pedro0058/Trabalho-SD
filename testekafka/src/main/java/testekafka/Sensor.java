@@ -10,6 +10,8 @@ public class Sensor {
 	private Double valor;
 	private Double maxValor;
 	private Double minValor;
+	private Double media;
+	private int leituras;
 	
 	public Sensor() {
 		this.id = UUID.randomUUID().toString();
@@ -22,6 +24,8 @@ public class Sensor {
 		this.maxValor = valor;
 		this.minValor = valor;
 		this.id = UUID.randomUUID().toString(); //gerando id único para o sensor
+		this.leituras = 1;
+		this.media = valor;
 	}
 
 	public String getNome() {
@@ -34,8 +38,8 @@ public class Sensor {
 	
 	@Override
 	public String toString() {
-		return "Sensor [id=" + id + ", nome=" + nome + ", valor=" + valor + ", maxValor=" + maxValor + ", minValor=" + minValor + "]";
-		//return "Sensor [id=" + id + ", nome=" + nome + ", valor=" + valor + "]";
+		return "Sensor [id=" + id + ", nome=" + nome + ", valor=" + valor + ", maxValor=" + maxValor + ", minValor="
+				+ minValor + ", media=" + media + ", leituras=" + leituras + "]";
 	}
 
 	public Double getValor() {
@@ -53,19 +57,27 @@ public class Sensor {
 	//método usado para modificar o valor do sensor e pegar o menor e meior vaalor já registrado
 	public void setValor(Double valor) {
 		this.valor = valor;
-//		maxValor = Math.max(maxValor, valor);
-//		minValor = Math.min(minValor, valor);
+		leituras = leituras + 1;
 	}
 	
 	public void setMaxValor(Double valor) {
 		this.maxValor = valor;
-		
 	}
 	
 	public void setMinValor(Double valor) {
 		this.minValor = valor;
-		
 	}
-		
+
+	public int getLeituras() {
+		return leituras;
+	}
+
+	public Double getMedia() {
+		return media;
+	}
+	
+	public void setMedia(Double media) {
+		this.media = media;
+	}
 
 }
